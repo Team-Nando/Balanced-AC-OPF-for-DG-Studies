@@ -14,6 +14,7 @@ Videos and more info: https://electrical.eng.unimelb.edu.au/power-energy/courses
 * Step 2. Launch AIMMS and accept the terms and conditions.
 * Step 3. Download the files from **this repo** and copy all the files (including the subfolder) to your PC or laptop.
 * Step 4. Using AIMMS, open the file "ACOPF.aimms".
+* Step 5. Play with the code!
   * Click on the tab 'Pages' (bottom left) and then double-click on 'Results' (top right, part of the 'Page Tree').
   * The pre-loaded network parameters and structure correspond to a small MV (balanced) network with three buses 1-2-3.
   * The pre-loaded objective function is to maximise the sum of the active power outputs of the set of Generators.
