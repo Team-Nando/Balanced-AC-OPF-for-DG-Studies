@@ -1,0 +1,949 @@
+## ams_version=1.0
+
+Model Main_ACOPF {
+	Comment: {
+		"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+		Day 3 \"Orchestration of DER and Active Distribution Networks\"
+		by Prof Luis(Nando) Ochoa
+		The University of Melbourne, Australia
+		
+		Key References:
+		- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+		- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+		Recent papers (all publicly available):
+		- https://sites.google.com/view/luisfochoa/publications/journal-papers
+		- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+	}
+	DeclarationSection sets {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		Set Buses {
+			Index: b;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Set Lines {
+			Index: l;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Set SlackBus {
+			SubsetOf: Buses;
+			Index: rb;
+			Definition: {
+				{ b | IsSlackBus(b) = 1 }
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Set Generators {
+			Index: g;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Set ExternalSources {
+			Index: x;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection BusParameters {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		Parameter IsSlackBus {
+			IndexDomain: b;
+			Range: binary;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter SlackBusVoltageMagnitude {
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter BusDemandActive {
+			IndexDomain: b;
+			Text: "active power at bus in p.u.";
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter BusDemandReactive {
+			IndexDomain: b;
+			Text: "reactive power at bus in p.u.";
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter BusVoltageMin {
+			IndexDomain: b;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter BusVoltageMax {
+			IndexDomain: b;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable BusVoltage {
+			IndexDomain: b;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable BusAngle {
+			IndexDomain: b;
+			Range: free;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintSlackBusAngle {
+			IndexDomain: rb;
+			Definition: BusAngle(rb) = 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintSlackBusVoltage {
+			IndexDomain: rb;
+			Definition: BusVoltage(rb) = SlackBusVoltageMagnitude;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintMaxBusVoltage {
+			IndexDomain: b;
+			Definition: BusVoltage(b) <= BusVoltageMax(b);
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintMinBusVoltage {
+			IndexDomain: b;
+			Definition: BusVoltage(b) >= BusVoltageMin(b);
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection LineParameters {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		ElementParameter LineStartBus {
+			IndexDomain: l;
+			Range: Buses;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		ElementParameter LineEndBus {
+			IndexDomain: l;
+			Range: Buses;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter LineConductance {
+			IndexDomain: l;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter LineSusceptance {
+			IndexDomain: l;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter LineRating {
+			IndexDomain: l;
+			Text: "rating of line in p.u.";
+			Range: nonnegative;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable LineStartPowerActive {
+			IndexDomain: l;
+			Range: free;
+			Default: 0;
+			Definition: {
+				LineConductance(l)*(BusVoltage(LineStartBus(l)))^2 -
+					BusVoltage(LineStartBus(l))*BusVoltage(LineEndBus(l)) *
+						(
+						LineConductance(l)*cos(BusAngle(LineStartBus(l))-BusAngle(LineEndBus(l))) +
+						LineSusceptance(l)*sin(BusAngle(LineStartBus(l))-BusAngle(LineEndBus(l)))
+						)
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable LineStartPowerReactive {
+			IndexDomain: l;
+			Range: free;
+			Default: 0;
+			Definition: {
+				-LineSusceptance(l)*(BusVoltage(LineStartBus(l)))^2 -
+					BusVoltage(LineStartBus(l))*BusVoltage(LineEndBus(l)) *
+						(
+						LineConductance(l)*sin(BusAngle(LineStartBus(l))-BusAngle(LineEndBus(l))) -
+						LineSusceptance(l)*cos(BusAngle(LineStartBus(l))-BusAngle(LineEndBus(l)))
+						)
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable LineEndPowerActive {
+			IndexDomain: l;
+			Range: free;
+			Default: 0;
+			Definition: {
+				LineConductance(l)*(BusVoltage(LineEndBus(l)))^2 -
+					BusVoltage(LineEndBus(l))*BusVoltage(LineStartBus(l)) *
+						(
+						LineConductance(l)*cos(BusAngle(LineEndBus(l))-BusAngle(LineStartBus(l))) +
+						LineSusceptance(l)*sin(BusAngle(LineEndBus(l))-BusAngle(LineStartBus(l)))
+						)
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable LineEndPowerReactive {
+			IndexDomain: l;
+			Range: free;
+			Default: 0;
+			Definition: {
+				-LineSusceptance(l)*(BusVoltage(LineEndBus(l)))^2 -
+					BusVoltage(LineEndBus(l))*BusVoltage(LineStartBus(l)) *
+						(
+						LineConductance(l)*sin(BusAngle(LineEndBus(l))-BusAngle(LineStartBus(l))) -
+						LineSusceptance(l)*cos(BusAngle(LineEndBus(l))-BusAngle(LineStartBus(l)))
+						)
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintLineStartPower {
+			IndexDomain: l;
+			Definition: LineStartPowerActive(l)^2 + LineStartPowerReactive(l)^2 <= LineRating(l)^2;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintLineEndPower {
+			IndexDomain: l;
+			Definition: LineEndPowerActive(l)^2 + LineEndPowerReactive(l)^2 <= LineRating(l)^2;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection GeneratorParameters {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		ElementParameter GenBus {
+			IndexDomain: g;
+			Range: Buses;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Parameter GenRating {
+			IndexDomain: g;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable GenPowerActive {
+			IndexDomain: g;
+			Range: nonnegative;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable GenPowerReactive {
+			IndexDomain: g;
+			Range: free;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintGenRating {
+			IndexDomain: g;
+			Definition: GenPowerActive(g)^2 + GenPowerReactive(g)^2 <= GenRating(g)^2;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection ExternalSourceParameters {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		ElementParameter SourceBus {
+			IndexDomain: x;
+			Range: Buses;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable SourcePowerActive {
+			IndexDomain: x;
+			Range: free;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Variable SourcePowerReactive {
+			IndexDomain: x;
+			Range: free;
+			Default: 0;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection ACOPFConstraints {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		Constraint ConstraintPowerBalanceActive {
+			IndexDomain: b;
+			Definition: {
+				sum( g | GenBus(g) = b, GenPowerActive(g) ) +
+				sum( x | SourceBus(x) = b, SourcePowerActive(x) )
+				=
+				BusDemandActive(b) +
+				sum( l | LineStartBus(l) = b, LineStartPowerActive(l) ) +
+				sum( l | LineEndBus(l) = b, LineEndPowerActive(l) )
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		Constraint ConstraintPowerBalanceReactive {
+			IndexDomain: b;
+			Definition: {
+				sum( g | GenBus(g) = b, GenPowerReactive(g) ) +
+				sum( x | SourceBus(x) = b, SourcePowerReactive(x) )
+				=
+				BusDemandReactive(b) +
+				sum( l | LineStartBus(l) = b, LineStartPowerReactive(l) ) +
+				sum( l | LineEndBus(l) = b, LineEndPowerReactive(l) )
+			}
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	DeclarationSection ACOPFObjective {
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+		Variable OpfObjective {
+			Text: "optimisation objective: active power of DG plants";
+			Range: free;
+			Default: 0;
+			Definition: sum(g, GenPowerActive(g));
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+		MathematicalProgram ACOPF {
+			Objective: OpfObjective;
+			Direction: maximize;
+			Constraints: AllConstraints;
+			Variables: AllVariables;
+			Type: Automatic;
+			Comment: {
+				"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+				Day 3 \"Orchestration of DER and Active Distribution Networks\"
+				by Prof Luis(Nando) Ochoa
+				The University of Melbourne, Australia
+				
+				Key References:
+				- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+				- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+				Recent papers (all publicly available):
+				- https://sites.google.com/view/luisfochoa/publications/journal-papers
+				- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+			}
+		}
+	}
+	Procedure InitialiseNetwork {
+		Body: {
+			empty Buses, Lines, Generators, ExternalSources;
+			empty allvariables;
+			
+			! NOTE: all values are in p.u.
+			! 	default power base is 100 MVA, 
+			! 	default voltage base is 33 kV
+			!	default impedance base is 33kV^2/100MVA = 10.89 Ohms
+			
+			! create elements for each set
+			Buses := {'1','2','3'};
+			Lines := {'1-2','2-3'};
+			Generators := {'DG'};
+			ExternalSources := {'Grid'};
+			
+			! initialise bus parameters
+			IsSlackBus('1') := 1;	! set bus 1 to be the slack bus of the network, note the transformer is not modelled
+						! the reference bus voltage can be configured in ConstraintSlackBusVoltage(rb) in BusParameters
+			SlackBusVoltageMagnitude := 1.00; 		! default slack bus voltage at 1 p.u.			
+			BusDemandActive('3') 	:= 27/100*1.0; 		! default peak load (active) in p.u at bus 3
+			BusDemandReactive('3') 	:= 6.7668/100*1.0; 	! default peak load (reactive) in p.u. at bus
+			BusVoltageMin(b) := 0.94; 	! minimum voltage for all buses
+			BusVoltageMax(b) := 1.06;	! maximum voltage for all buses
+			
+			! initialise line parameters
+			! NOTE: line impedance Z = 0.15 + j*0.08 p.u.
+			!	line admittance Y = 1/Z = 5.1903 - j*2.7682 p.u.
+			LineStartBus('1-2') 	:= '1';
+			LineEndBus('1-2') 	:= '2';
+			LineStartBus('2-3') 	:= '2';
+			LineEndBus('2-3') 	:= '3';	
+			LineConductance(l) := 5.1903;	
+			LineSusceptance(l) := -2.7682;	
+			LineRating(l) := 0.37; 		! 37MVA rating
+			
+			! initialise generator parameters
+			GenBus('DG') := '3';
+			GenRating(g) := 100/100; 	! 100 MVA rating (large number)
+			
+			! initialise grid parameter
+			SourceBus('Grid') := '1';
+		}
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+	}
+	Procedure MaximiseGeneration {
+		Body: {
+			solve ACOPF;
+		}
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+	}
+	Procedure MainTermination {
+		Body: {
+			!return DataManagementExit();
+			return 1;
+		}
+		Comment: {
+			"PhD-Level Short Course on \"Advanced Modelling of DER-Rich Active Distribution Networks\"
+			Day 3 \"Orchestration of DER and Active Distribution Networks\"
+			by Prof Luis(Nando) Ochoa
+			The University of Melbourne, Australia
+			
+			Key References:
+			- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+			- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+			Recent papers (all publicly available):
+			- https://sites.google.com/view/luisfochoa/publications/journal-papers
+			- https://sites.google.com/view/luisfochoa/publications/conference-papers"
+		}
+	}
+}

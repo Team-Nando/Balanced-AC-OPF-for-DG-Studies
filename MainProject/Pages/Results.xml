@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2017-08-25 07:19:51">
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>296C5929-5CFF-4AB3-B4A3-FE008D402532</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<PageObject Type="Table">
+		<Location top="264" left="48" bottom="372" right="588" />
+		<TabOrder>2</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<RowIndentation>3</RowIndentation>
+		<ExplicitIdentifier>
+			<Identifier>BusVoltage( b )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>BusAngle( b )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="2" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>BusDemandActive( b )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>BusDemandReactive( b )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Table">
+		<Location top="378" left="48" bottom="486" right="750" />
+		<TabOrder>1</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<RowIndentation>3</RowIndentation>
+		<ExplicitIdentifier>
+			<Identifier>LineStartPowerActive( l )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>LineStartPowerReactive( l )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>LineEndPowerActive( l )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>LineEndPowerReactive( l )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" Alignment="Center" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Table">
+		<Location top="492" left="402" bottom="570" right="750" />
+		<TabOrder>5</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffff80" />
+		<RowIndentation>3</RowIndentation>
+		<ExplicitIdentifier>
+			<Identifier>GenPowerActive( g )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="4" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>GenPowerReactive( g )</Identifier>
+			<FirstColumn>1</FirstColumn>
+			<NumberFormat Width="7" Decimals="3" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="492" left="54" bottom="552" right="198" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Load Network"</Title>
+		<TooltipText>"This runs procedure InitialiseNetwork"</TooltipText>
+		<BackgroundColor RGB="#80ffff" />
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>InitialiseNetwork</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="492" left="216" bottom="552" right="360" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Run OPF"</Title>
+		<TooltipText>"This runs procedure MaximiseGenerationt"</TooltipText>
+		<BackgroundColor RGB="#80ffff" />
+		<ForegroundColor RGB="#400040" />
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>MaximiseGeneration</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Table">
+		<Location top="222" left="48" bottom="258" right="336" />
+		<TabOrder>6</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<RowIndentation>3</RowIndentation>
+		<ExplicitIdentifier>
+			<Identifier>SlackBusVoltageMagnitude</Identifier>
+			<FirstColumn>0</FirstColumn>
+			<NumberFormat Width="7" Decimals="3" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="222" left="354" bottom="258" right="636" />
+		<StaticText>Slack bus voltage magnitude can be modified by double clicking this value</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#0000ff" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="90" left="48" bottom="216" right="852" />
+		<StaticText>Instructions:
+1. Modify the network using the procedure 'InitialiseNetwork'
+2. Adjust the AC OPF formulation (objective, constraints, etc.) as needed
+3. Click 'Load Network' to initiatlise the network (procedure 'InitialiseNetwork')
+4. Click 'Run OPF' to run the optimisation (procedure 'MaixmiseGeneration' - which can be replaced or modified)
+The results are displayed below in p.u.</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#ff0000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="282" left="600" bottom="342" right="774" />
+		<StaticText>Demand can be modified by double clicking the corresponding values</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#0000ff" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="12" left="48" bottom="90" right="978" />
+		<StaticText>PhD-Level Short Course on "Advanced Modelling of DER-Rich Active Distribution Networks"
+Day 3 "Orchestration of DER and Active Distribution Networks"
+by Prof Luis(Nando) Ochoa, The University of Melbourne, Australia
+Last update: 20th July 2021</StaticText>
+		<Font GUID="2C968BE5-2B9D-4746-8959-86D661EBAEA7" Name="Title" />
+		<TextColor RGB="#0000ff" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="774" left="264" bottom="798" right="672" />
+		<StaticText>Acknowledgement: Dr Michael Liu, Research Fellow</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="2DFF6172-89B0-4BAF-B954-3560E4BA3A52" Name="Italic" />
+		<TextColor RGB="#0000ff" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="768" left="270" bottom="798" right="666" />
+		<Shape>Open</Shape>
+		<FillColor RGB="#ffffff" />
+		<LineColor RGB="#0000ff" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="630" left="42" bottom="756" right="984" />
+		<StaticText>Key References:
+- https://www.researchgate.net/publication/224079949_Distribution_Network_Capacity_Assessment_Variable_DG_and_Active_Networks
+- https://www.researchgate.net/publication/256696248_State-of-the-art_techniques_and_challenges_ahead_for_DG_planning_and_optimization
+
+Recent papers (all publicly available):
+- https://sites.google.com/view/luisfochoa/publications/journal-papers
+- https://sites.google.com/view/luisfochoa/publications/conference-papers</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#ff0000" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>SlackBusVoltageMagnitude</Symbol>
+			<Symbol>BusDemandActive</Symbol>
+			<Symbol>BusDemandReactive</Symbol>
+			<Symbol>BusVoltage</Symbol>
+			<Symbol>BusAngle</Symbol>
+			<Symbol>LineStartPowerActive</Symbol>
+			<Symbol>LineStartPowerReactive</Symbol>
+			<Symbol>LineEndPowerActive</Symbol>
+			<Symbol>LineEndPowerReactive</Symbol>
+			<Symbol>GenPowerActive</Symbol>
+			<Symbol>GenPowerReactive</Symbol>
+			<Symbol>InitialiseNetwork</Symbol>
+			<Symbol>MaximiseGeneration</Symbol>
+			<Symbol>b</Symbol>
+			<Symbol>l</Symbol>
+			<Symbol>g</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

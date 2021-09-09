@@ -1,0 +1,7 @@
+* The timestamps in this namechange file are stored in Coordinated universal time (UTC).
+"ReferenceBuses" "SlackBus" "2017-08-25 06:32:01"
+"LoadDataFromDatabase" "InitialiseNetwork" "2017-08-25 06:32:40"
+"LineMaxFlow" "LineRating" "2017-08-25 06:48:21"
+"OptObjective" "OpfObjective" "2017-08-25 06:57:14"
+"SlackBusVoltage" "SlackBusVoltageMagnitude" "2017-08-25 07:03:30"
+"MaximiseSetpoint" "MaximiseGeneration" "2017-08-25 07:19:49"

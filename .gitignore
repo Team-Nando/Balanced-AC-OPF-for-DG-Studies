@@ -1,0 +1,4 @@
+# temporary directories created by AIMMS
+**/log/
+**/backup/
+
